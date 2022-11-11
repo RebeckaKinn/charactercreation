@@ -1,7 +1,8 @@
 let site = document.getElementById(`app`);
-let missing = ``;
 let chosenname = ``;
 let mychosenname = ``;
+let missingCategory = ``; 
+let viewArr = ``;
 const backgroundArr = ['Charlatan', 'Criminal', 'Entertainer', 'Folk Hero', 'Guild Artisan', 'Hermit', 'Outlander', 'Noble', 'Sage', 'Sailor', 'Solider', 'Urchin'];
 const alignmentArr = ['Neutral good', 'Chaotic good', 'Lawful neutral', 'Neutral', 'Chaotic neutral', 'Lawful evil', 'Neutral evil', 'Chaotic evil',];
 const classArr = ['Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rouge', 'Sorcerer', 'Warlock', 'Wizard'];
@@ -13,7 +14,6 @@ const output = [false, false, false, false];
 
 view();
 function view(){
-    let viewArr = ``;
     viewArr += `<div>`;
     for (let i = 0; i < output.length; i++){
         if (output[i]) viewArr += output[i];
@@ -31,8 +31,11 @@ function view(){
     <p>Be ready for your travels and create your new Dungeons and Dragons character!</p><br/>
     <p>Name your character!</p>
     <input id="namebox" type="text" value="${chosenname}" placeholder="Enter name"/><button onclick="nameGenerator()">Create my name!</button>
-    <div>${mychosenname}${viewArr}</div>`; 
+    <div>${missingCategory}</div>
+    <div>${mychosenname}${viewArr}</div>
+    `; 
 }
+//somethingMissing()
 
 function chosencharacter(main, undercategory){
     output[main] = `${voiceline[main]} ${arrCollection[main][undercategory]}. `;
@@ -44,3 +47,12 @@ function nameGenerator() {
     mychosenname = `<div>Greetings! My glorious name is ${chosenname}, a pleasure!</div>`;
     view()
 }
+
+//function somethingMissing(){ 
+//    if(){ 
+//    missingCategory += `<div>You have chosen all!</div>`;
+//} else {
+//    missingCategory += `<div>You have not chosen yet!</div><br/>`;
+//}
+//    view();
+//}
